@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-info">
+   <h2>Formulaire de mise en adoption</h2><br>
+   <p>
+      Vous ne pouvez plus vous occuper de votre animal? Remplissez le formulaire suivant 
+      pour que le profil de votre companion soit affiché aux utilisateurs de PawHub 
+      cherchant à adopter un animal. Les interéssés vous contacteront directement pour
+      signifier leur intérêt et ils viendront eux-même chercher l'animal, à moins 
+      qu'un arrangement ai lieu<br><br>
+      La mise en adoption d’un animal de compagnie
+      est une étape importante pour lui offrir un nouveau départ dans un foyer aimant 
+      et adapté à ses besoins. Cela permet de désengorger les refuges et de donner 
+      à ces animaux une chance de vivre une vie heureuse et équilibrée. Adopter un 
+      animal, c’est également créer un lien unique basé sur la confiance et l’affection, 
+      tout en réalisant un geste responsable et bénéfique pour la communauté animale.
+      <br><br>
+   </p>
+</div>
+<form id="form-adoption" method="post" action="/submit">
+   <h5>Tous les champs sont obligatoires<br><br></h6>
+   <label for="nom">Nom de l'animal :</label>
+   <span class="erreur" id="erreur-nom">Le nom doit être entre 3 et 20 caractères et ne pas contenir de virgules</span><br>
+   {% if erreur_nom %}
+      <span class="erreur-serveur">Le nom doit être entre 3 et 20 caractères et ne pas contenir de virgules</span><br>
+   {% endif %}
+   <input type="text" id="nom" name="nom"><br><br>
+   
+   <label for="espece">Espèce de l'animal :</label>
+   <span class="erreur" id="erreur-espece">L'espèce doit être spécifié et ne pas contenir de virgules</span><br>
+   {% if erreur_espece %}
+      <span class="erreur-serveur">L'espèce doit être spécifiée et ne pas contenir de virgules</span><br>
+   {% endif %}
+   <input type="text" id="espece" name="espece"><br><br>
+
+   <label for="race">Race de l'animal :</label>
+   <span class="erreur" id="erreur-race">L'espèce doit être spécifiée et ne pas contenir de virgules</span><br>
+   {% if erreur_race %}
+      <span class="erreur-serveur">L'espèce doit être spécifiée et ne pas contenir de virgules</span><br>
+   {% endif %}
+   <input type="text" id="race" name="race"><br><br>
+
+   <label for="age">Âge de l'animal :</label>
+   <span class="erreur" id="erreur-age">L'âge doit être une valeur numérique entre 0 et 30</span><br>
+   {% if erreur_age %}
+      <span class="erreur-serveur">L'âge doit être une valeur numérique entre 0 et 30</span><br>
+   {% endif %}
+   <input type="text" id="age" name="age"><br><br>
+   
+   <label for="description">description :</label>
+   <span class="erreur" id="erreur-description">La description doit être spécifiée et ne pas contenir de virgules</span><br>
+   {% if erreur_description %}
+      <span class="erreur-serveur">La description doit être spécifiée et ne pas contenir de virgules</span><br>
+   {% endif %}
+   <textarea id="description" name="description"></textarea><br><br>
+   
+   <label for="courriel">Adresse courriel :</label>
+   <span class="erreur" id="erreur-courriel">L'adresse courriel doit être valide et ne pas contenir de virgules</span><br>
+   {% if erreur_courriel %}
+      <span class="erreur-serveur">L'adresse courriel doit être valide et ne pas contenir de virgules</span><br>
+   {% endif %}
+   <input type="text" id="courriel" name="courriel"><br><br>
+   
+   <label for="adresse">Adresse civique :</label>
+   <span class="erreur" id="erreur-adresse">L'adresse civique doit être spécifiée et ne pas contenir de virgules</span><br>
+   {% if erreur_adresse %}
+      <span class="erreur-serveur">L'adresse civique doit être spécifiée et ne pas contenir de virgules</span><br>
+   {% endif %}
+   <input type="text" id="adresse" name="adresse"><br><br>
+   
+   <label for="ville">Ville :</label>
+   <span class="erreur" id="erreur-ville">La ville doit être spécifiée et ne pas contenir de virgules</span><br>
+   {% if erreur_ville %}
+      <span class="erreur-serveur">La ville doit être spécifiée et ne pas contenir de virgules</span><br>
+   {% endif %}
+   <input type="text" id="ville" name="ville"><br><br>
+   
+   <label for="cp">Code postal :</label>
+   <span class="erreur" id="erreur-cp">Le code postal doit être valide et ne pas contenir de virgules</span><br>
+   {% if erreur_cp %}
+      <span class="erreur-serveur">Le code postal doit être valide et ne pas contenir de virgules</span><br>
+   {% endif %}
+   <input type="text" id="cp" name="cp"><br><br>
+   <div class="submit-button">   
+      <input type="submit" value="Soumettre">
+   </div>
+</form>
+{% endblock %}
